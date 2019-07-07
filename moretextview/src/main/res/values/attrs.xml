@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--收起展开textview-->
-    <declare-styleable name="MoreTextView">
+    <declare-styleable name="MoreTextView" tools:ignore="MissingDefaultResource">
         <!--能显示的最大行数-->
         <attr name="maxUnFoldLines" format="integer" />
         <!--动画执行时间-->

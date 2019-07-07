@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="moreText">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="moreText" tools:ignore="ExtraTranslation">
         <item>wAt last both of them got very tired and could no longer f</item>
         <item>"wAt last both of them got very tired and could no longer fightThe Lion, The Bear And The Fox（狮子、熊与狐狸）Long ago a lion and a bear saw a kid. They sprang upon it at the same time. The lion said to the bear, “I caught this kid first, and so this is mine.No, no," said the bear.“I found it earlier than you, so this is mine.” And they fought long and fiercely. At last both of them got very tired and could no longer fight"</item>
         <item>"A fox who hid himself behind a tree not far away and was watching the fight between the lion and the bear, came out and walked in between them, and ran off with the kid.A fox who hid himself behind a tree not far away and was watching the fight between the lion and the bear, came out and walked in between them, and ran off with the kid.The Boys And The Frogs（男孩与青蛙）One spring day some naughty boys were playing near a pond. They began to throw stones into the water. In the pond lived many frogs were much afraid of the boys, for the stones hurt some of the frogs."</item>

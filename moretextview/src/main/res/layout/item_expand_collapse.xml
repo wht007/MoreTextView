@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/black"
         android:textSize="15sp"
-        tools:text="@string/txt" />
+        tools:text="" />
 
     <TextView
         android:id="@+id/expand_collapse"
@@ -22,6 +22,6 @@
         android:background="@android:color/transparent"
         android:drawablePadding="3dp"
         android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
-        tools:drawableRight="@mipmap/icon_up" />
+        android:textColor="@color/black"
+        tools:drawableRight="@drawable/icon_up" />
 </LinearLayout>

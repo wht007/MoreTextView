@@ -3,13 +3,10 @@ package cn.wht.moretextview;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.text.Layout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -22,10 +19,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static android.content.ContentValues.TAG;
-
 /**
- *
+ *可展开/收缩的TextView
  */
 public class MoreTextView extends LinearLayout implements View.OnClickListener {
 
@@ -168,10 +163,10 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
         textUnFold = typedArray.getString(R.styleable.MoreTextView_unFoldValue);
 
         if (mUnFoldImage == null) {
-            mUnFoldImage = ContextCompat.getDrawable(getContext(), R.mipmap.icon_up);
+            mUnFoldImage = ContextCompat.getDrawable(getContext(), R.drawable.icon_up);
         }
         if (mFoldImage == null) {
-            mFoldImage = ContextCompat.getDrawable(getContext(), R.mipmap.icon_down);
+            mFoldImage = ContextCompat.getDrawable(getContext(), R.drawable.icon_down);
         }
 
         if (TextUtils.isEmpty(textFold)) {
@@ -180,10 +175,10 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
         if (TextUtils.isEmpty(textUnFold)) {
             textUnFold = "展开";
         }
-        contentTextColor = typedArray.getColor(R.styleable.MoreTextView_contentTextColor, ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+        contentTextColor = typedArray.getColor(R.styleable.MoreTextView_contentTextColor, ContextCompat.getColor(getContext(), R.color.black));
         contentTextSize = typedArray.getDimension(R.styleable.MoreTextView_contentTextSize, sp2px(getContext(), 14));
 
-        expandCollapsTextColor = typedArray.getColor(R.styleable.MoreTextView_expandCollapsTextColor, ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+        expandCollapsTextColor = typedArray.getColor(R.styleable.MoreTextView_expandCollapsTextColor, ContextCompat.getColor(getContext(), R.color.black));
         expandCollapsTextSize = typedArray.getDimension(R.styleable.MoreTextView_expandCollapsTextSize, sp2px(getContext(), 14));
 
         grarity = typedArray.getInt(R.styleable.MoreTextView_expandCollapsTextGravity, Gravity.LEFT);
