@@ -1,5 +1,24 @@
+![releases](https://jitpack.io/v/wht0707/MoreTextView.svg)
 ## MoreTextView
-可展开和收缩的TextView，列表也可以使用  
+可展开和收缩的 TextView，列表也可以使用  
+###### 使用方法
+先在根目录的 build.gradle 下的 repositories 添加:
+```
+allprojects {
+        repositories {
+            ...
+            maven { url "https://jitpack.io" }
+        }
+    }
+```  
+然后在 app 目录下的 build.gradle 的 dependencies 添加:
+```
+ dependencies {
+    implementation 'com.github.wht0707:MoreTextView:1.0'
+    }
+```
+
+
 ###### 属性
 ```
 <!--能显示的最大行数-->
