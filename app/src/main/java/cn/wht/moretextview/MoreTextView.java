@@ -43,11 +43,17 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
      * 显示状态（默认收起）
      */
     private boolean isFold = true;
+    /**
+     * 是否有重新绘制
+     */
     private boolean isChange = false;
+    /**
+     * 加载内容的TextView
+     */
     protected TextView mContentText;
 
     /**
-     * 展开收起textview
+     * 展开收起TextView
      */
     protected TextView mFoldTxt;
 
@@ -86,12 +92,12 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
     private int mMaxFoldLines;
 
     /**
-     * 这个linerlayout容器的高度
+     * 收起时linerlayout容器的高度
      */
     private int mCollapsedHeight;
 
     /**
-     * 内容tv真实高度（含padding）
+     * 完整显示内容时的真实高度（含padding）
      */
     private int mTextHeightWithMaxLines;
 
@@ -231,10 +237,13 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
         mAnimating = true;
         ValueAnimator valueAnimator;
         if (isFold) {
+            // 收缩动画， getHeight 获取的是容器总高度   mCollapsedHeight 时最大显示n行时的高度
             valueAnimator = new ValueAnimator().ofInt(getHeight(), mCollapsedHeight);
         } else {
+            // 展开动画 getHeight 此时获取的是收起时的总高度 ->展开的最终位置((收起时的总高度+完全显示内容的总高度)-(收起时的总高度-收取展开控件的高度))
+            // (收起时的总高度+完全显示内容的总高度) 多加了收起时纯文本高度。 最终位置也可以是写成（getHeight()+mTextHeightWithMaxLines-mContentText.getHeight()）
             valueAnimator = new ValueAnimator().ofInt(getHeight(), getHeight() +
-                    mTextHeightWithMaxLines - mContentText.getHeight());
+                    mTextHeightWithMaxLines - (getHeight() - mFoldTxt.getHeight()));
         }
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -282,22 +291,20 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d("onMeasure","onMeasure");
         if (!isChange || getVisibility() == View.GONE) {
-            Log.d("onMeasure","onMeasureonMeasureonMeasureonMeasureonMeasure");
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return;
         }
         isChange = false;
         mFoldTxt.setVisibility(View.GONE);
-        mContentText.setMaxLines(Integer.MAX_VALUE);
         // Measure
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
         // 如果内容真实行数小于等于最大行数，不处理
         if (mContentText.getLineCount() <= mMaxFoldLines) {
             return;
         }
-        // 获取内容真实高度（含padding）
+        // 完整显示内容时的真实高度
         mTextHeightWithMaxLines = getRealTextViewHeight(mContentText);
 
         // 如果是收起状态，重新设置最大行数
@@ -305,23 +312,18 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
             mContentText.setMaxLines(mMaxFoldLines);
         }
         mFoldTxt.setVisibility(View.VISIBLE);
-
-        // Re-measure with new setup
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         if (isFold) {
-            // Gets the margin between the TextView's bottom and the ViewGroup's bottom
+            // 收起时获取除文本之外的高度
             mContentText.post(new Runnable() {
                 @Override
                 public void run() {
                     mMarginBetweenTxtAndBottom = getHeight() - mContentText.getHeight();
-                    Log.d(TAG, "getHeight: "+getHeight());
-                    Log.d(TAG, "mContentText.getHeight(): "+mContentText.getHeight());
                 }
             });
-            // 保存这个容器的测量高度
+            // 保存收起时的控件总高度
             mCollapsedHeight = getMeasuredHeight();
-            Log.d(TAG, "mCollapsedHeight: "+mCollapsedHeight);
         }
     }
 
@@ -379,7 +381,6 @@ public class MoreTextView extends LinearLayout implements View.OnClickListener {
      */
     public void setTextColor(int color) {
         mContentText.setTextColor(color);
-        requestLayout();
     }
 
     /**

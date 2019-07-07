@@ -12,11 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MoreTextView moreTextView = findViewById(R.id.more_txt);
-//        moreTextView.setText("The Lion, The Bear And The Fox（狮子、熊与狐狸）Long ago a lion and a bear saw a kid. They sprang upon it at the same time. The lion said to the bear, “I caught this kid first, and so this is mine.No, no,\" said the bear.“I found it earlier than you, so this is mine.” And they fought long and fiercely. The Lion, The Bear And The Fox（狮子、熊与狐狸）Long ago a lion and a bear saw a kid. They sprang upon it at the same time. The lion said to the bear, “I caught this kid first, and so this is mine.No, no,\" said the bear.“I found it earlier than you, so this is mine.” And they fought long and fiercely. ");
-        moreTextView.setText("The story of a Chinese couple at Oxford University who first met each other as deskmate in middle school and recently married each other has gone viral, southcn.com reported." +
-                "Zhou Si, the groom, and Chen Mengge, the bride, married each other on Aug 18 and will together go to Oxford University to pursue their doctoral degrees later this year." +
-                "They were deskmate in middle school and then both were admitted by same high school but not in same class.");
-        moreTextView.setTextColor(getResources().getColor(R.color.colorAccent));
+        moreTextView.setText("The Lion, The Bear And The Fox（狮子、熊与狐狸）Long ago a lion and a bear saw a kid. They sprang upon it at the same time. The lion said to the bear, “I caught this kid first, and so this is mine.No, no,\" said the bear.“I found it earlier than you, so this is mine.” And they fought long and fiercely. The Lion, The Bear And The Fox（狮子、熊与狐狸）Long ago a lion and a bear saw a kid. They sprang upon it at the same time. The lion said to the bear, “I caught this kid first, and so this is mine.No, no,\" said the bear.“I found it earlier than you, so this is mine.” And they fought long and fiercely. ");
         Button listBtn=findViewById(R.id.listBtn);
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override

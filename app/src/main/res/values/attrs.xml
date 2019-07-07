@@ -2,20 +2,32 @@
 <resources>
     <!--收起展开textview-->
     <declare-styleable name="MoreTextView">
+        <!--能显示的最大行数-->
         <attr name="maxUnFoldLines" format="integer" />
+        <!--动画执行时间-->
         <attr name="animDuration" format="integer" />
+        <!--内容文字颜色-->
         <attr name="contentTextColor" format="color" />
+        <!--内容文字大小-->
         <attr name="contentTextSize" format="dimension" />
+        <!--收起图片-->
         <attr name="foldImage" format="reference" />
+        <!--收起的文字描述-->
         <attr name="foldValue" format="string" />
+        <!--展开图片-->
         <attr name="unFoldImage" format="reference" />
+        <!--展开文字描述-->
         <attr name="unFoldValue" format="string" />
+        <!--收起/展开文字大小-->
         <attr name="expandCollapsTextSize" format="dimension" />
+        <!--收起/展开文字颜色-->
         <attr name="expandCollapsTextColor" format="color" />
+        <!--收起/展开文字居左/居右-->
         <attr name="expandCollapsTextGravity">
             <flag name="left" value="3" />
             <flag name="right" value="5" />
         </attr>
+        <!--上下箭头图片居左/居右-->
         <attr name="imageGrarity">
             <flag name="left" value="3" />
             <flag name="right" value="5" />
