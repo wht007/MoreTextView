@@ -1,4 +1,4 @@
-![releases](https://jitpack.io/v/wht0707/MoreTextView.svg)
+![releases](https://jitpack.io/v/wht007/MoreTextView.svg)
 ## MoreTextView
 可展开和收缩的 TextView，列表也可以使用  
 ###### 使用方法
@@ -197,7 +197,7 @@ public void onClick(View view) {
 ###### 用法
 - 普通使用`expandableTextView.setText("content");`
 - 列表使用`expandableTextView.setText("content"，item的下标);`   
-###### [github地址](https://github.com/wht0707/MoreTextView)  
+###### [github地址](https://github.com/wht007/MoreTextView)  
 ###### 参考[ExpandableTextView ](https://github.com/Manabu-GT/ExpandableTextView)
 
 
