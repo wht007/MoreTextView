@@ -14,7 +14,7 @@ allprojects {
 然后在 app 目录下的 build.gradle 的 dependencies 添加:
 ```
  dependencies {
-    implementation 'com.github.wht0707:MoreTextView:1.0'
+    implementation 'com.github.wht007:MoreTextView:1.0'
     }
 ```
 
